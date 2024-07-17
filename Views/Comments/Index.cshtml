@@ -1,0 +1,39 @@
+@model IEnumerable<WebApplicationTRY_TWO.Models.CommentViewModel>
+
+<h2>Comments</h2>
+
+<a href="@Url.Action("Create", "Comments")" class="btn btn-success">Add New Comment</a>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Comment Text</th>
+        <th>Date</th>
+        <th>Type</th>
+        <th>Score</th>
+        <th>Product Id</th>
+        <th>User Id</th>
+        <th>Answer Id</th> <!-- Yeni eklenen sütun -->
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var comment in Model)
+    {
+        <tr>
+            <td>@comment.id</td>
+            <td>@comment.comment_text</td>
+            <td>@comment.comment_date?.ToString("yyyy-MM-dd")</td>
+            <td>@comment.comment_type</td>
+            <td>@comment.comment_score</td>
+            <td>@comment.product_id</td>
+            <td>@comment.user_id</td>
+            <td>@comment.answer_id</td> <!-- Yeni eklenen sütun -->
+            <td>
+                <a href="@Url.Action("Edit", "Comments", new { id = comment.id })" class="btn btn-primary">Edit</a>
+                <a href="@Url.Action("Delete", "Comments", new { id = comment.id })" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

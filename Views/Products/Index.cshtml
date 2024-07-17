@@ -1,0 +1,30 @@
+@model IEnumerable<WebApplicationTRY_TWO.Models.Products>
+
+<h2>Products</h2>
+<a class="btn btn-success" href="@Url.Action("Create")">Create New</a>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Price</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var product in Model)
+    {
+        <tr>
+            <td>@product.id</td>
+            <td>@product.products_name</td>
+            <td>@product.products_description</td>
+            <td>@product.products_price.ToString()</td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@product.id" class="btn btn-primary">Edit</a>|
+                <a asp-action="Delete" asp-route-id="@product.id" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

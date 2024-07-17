@@ -1,0 +1,33 @@
+@model IEnumerable<WebApplicationTRY_TWO.Models.Users>
+
+<h2>Users</h2>
+
+<a class="btn btn-primary" href="@Url.Action("Create", "Users")">Create New</a>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>User Name</th>
+        <th>Email</th>
+        <th>User Type</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var user in Model) {
+        <tr>
+            <td>@user.id</td>
+            <td>@user.user_name</td>
+            <td>@user.user_email</td>
+            <td>@user.user_type</td>
+            <td>
+                <a asp-action="Edit" asp-controller="Users" asp-route-id="@user.id" class="btn btn-primary">Edit</a>
+                <!-- Delete butonu ekleme -->
+                <a asp-action="Delete" asp-controller="Users" asp-route-id="@user.id" class="btn btn-danger">Delete</a>
+
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

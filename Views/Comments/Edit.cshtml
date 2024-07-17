@@ -1,0 +1,29 @@
+@model WebApplicationTRY_TWO.Models.CommentViewModel
+
+@{
+    ViewData["Title"] = "Edit Comment";
+}
+
+<h2>Edit Comment</h2>
+
+<form asp-action="Edit">
+    <input type="hidden" asp-for="id" />
+    
+    <div class="form-group">
+        <label asp-for="comment_text" class="control-label">Comment Text</label>
+        <input asp-for="comment_text" class="form-control" />
+        <span asp-validation-for="comment_text" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="comment_score" class="control-label">Comment Score</label>
+        <input asp-for="comment_score" class="form-control" />
+        <span asp-validation-for="comment_score" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save Changes</button>
+</form>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

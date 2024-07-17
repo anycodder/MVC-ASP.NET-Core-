@@ -1,0 +1,61 @@
+@model WebApplicationTRY_TWO.Models.CommentViewModel
+
+@{
+    ViewData["Title"] = "Create Comment";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form asp-action="Create">
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        <label asp-for="comment_text" class="control-label"></label>
+        <textarea asp-for="comment_text" class="form-control"></textarea>
+        <span asp-validation-for="comment_text" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="comment_date" class="control-label"></label>
+        <input asp-for="comment_date" class="form-control" type="date" />
+        <span asp-validation-for="comment_date" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="comment_type" class="control-label"></label>
+        <input asp-for="comment_type" class="form-control" />
+        <span asp-validation-for="comment_type" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="comment_score" class="control-label"></label>
+        <input asp-for="comment_score" class="form-control" type="number" />
+        <span asp-validation-for="comment_score" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="product_id" class="control-label">Product</label>
+        <select asp-for="product_id" class="form-control" asp-items="ViewBag.ProductId"></select>
+        <span asp-validation-for="product_id" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="user_id" class="control-label">User</label>
+        <select asp-for="user_id" class="form-control" asp-items="ViewBag.UserId"></select>
+        <span asp-validation-for="user_id" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="answer_id" class="control-label">Answer</label>
+        <input asp-for="answer_id" class="form-control" />
+        <span asp-validation-for="answer_id" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create</button>
+</form>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+
